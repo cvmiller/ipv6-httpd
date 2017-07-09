@@ -23,7 +23,7 @@ Python is a wonderful programming language, and getting only better with version
 
 ## Examples
 
-#### Help
+#### running ipv6-httpd
 
 ```
 $ ./ipv6-httpd.py 
