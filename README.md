@@ -5,7 +5,7 @@ A `python3` script to provide a simple webserver supporting both **IPv6** and IP
 
 ## Motivation
 
-The python module `httpServer` supports IPv4 out of the box with the simple command:
+The python module `SimpleHTTPServer` supports IPv4 out of the box with the simple command:
 
 ```
 python -m SimpleHTTPServer
@@ -13,7 +13,7 @@ python -m SimpleHTTPServer
 
 However it does **not** support IPv6. There is no one line equivalent to support IPv6, so a small script is required.
 
-This is **not** a production web server, but can easily be used to illustrate how to create a small web sever with virtual paths, which could be expanded to a full RESTful interface or a CGI interface. It is useful when one wants to transfer a file from machine A to machine B.
+This is **not** a production web server, but can easily be used to illustrate how to create a small web sever with virtual paths, which could be expanded to a full RESTful interface (Representational state transfer) or a CGI interface (Common Gateway Interface). Or it is useful as is when one wants to transfer a file from machine A to machine B.
 
 This code was forked from a [gist](https://gist.github.com/akorobov/7903307) published on github four years ago.
 
@@ -24,6 +24,7 @@ Python is a wonderful programming language, and getting only better with version
 ## Examples
 
 #### running ipv6-httpd
+Access log entries are logged to standard out
 
 ```
 $ ./ipv6-httpd.py 
