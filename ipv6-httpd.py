@@ -9,7 +9,7 @@
         otherwise, shows directory index
 
     Modified to work under python3 by Craig Miller 23 June 2017
-    Version 0.92
+    Version 0.93
 """
 
 #
@@ -25,7 +25,7 @@ import socket
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 
 import signal
-import sys
+import os
 
 # setup global for server request loop
 shutdown_requested = False
@@ -35,7 +35,7 @@ def sigint_handler(signal, frame):
     global shutdown_requested
     shutdown_requested = True
     print("Caught SIGINT, dying")
-    sys.exit(0)
+    os._exit(0)
 
 # register SIGINT signal handler
 signal.signal(signal.SIGINT, sigint_handler)
@@ -67,7 +67,7 @@ def main():
         except:
             # get out of loop
             pass
-    sys.exit(0)
+    os._exit(0)
 
 
 if __name__ == '__main__':
