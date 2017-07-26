@@ -27,14 +27,11 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 import signal
 import os
 
-# setup global for server request loop
-shutdown_requested = False
 
 # signal handlder for SIGINT
 def sigint_handler(signal, frame):
-    global shutdown_requested
-    shutdown_requested = True
-    print("Caught SIGINT, dying")
+    shutdown_requested = True    
+    print("\nCaught SIGINT, dying")
     os._exit(0)
 
 # register SIGINT signal handler
@@ -59,14 +56,10 @@ class HTTPServerV6(HTTPServer):
     address_family = socket.AF_INET6
 
 def main():
+    global server
     server = HTTPServerV6(('::', listen_port), MyHandler)
     print('Press ^C to quit')
-    while not shutdown_requested:
-        try:
-            server.handle_request()
-        except:
-            # get out of loop
-            pass
+    server.serve_forever()
     os._exit(0)
 
 
