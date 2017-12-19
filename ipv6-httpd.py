@@ -9,7 +9,7 @@
         otherwise, shows directory index
 
     Modified to work under python3 by Craig Miller 23 June 2017
-    Version 0.93
+    Version 0.94
 """
 
 #
@@ -58,10 +58,11 @@ class HTTPServerV6(HTTPServer):
 def main():
     global server
     server = HTTPServerV6(('::', listen_port), MyHandler)
-    print('Press ^C to quit')
+    print('Listening on port:' + str(listen_port) + '\nPress ^C to quit')
     server.serve_forever()
     os._exit(0)
 
 
 if __name__ == '__main__':
     main()
+

@@ -15,6 +15,8 @@ However it does **not** support IPv6. There is no one line equivalent to support
 
 This is **not** a production web server, but can easily be used to illustrate how to create a small web sever with virtual paths, which could be expanded to a full RESTful interface (Representational state transfer) or a CGI interface (Common Gateway Interface). Or it is useful as is when one wants to transfer a file from machine A to machine B.
 
+The Script includes a virtual path of `/ip` which when requested will return to the requester the IP address of the client.
+
 This code was forked from a [gist](https://gist.github.com/akorobov/7903307) published on github four years ago.
 
 
@@ -28,6 +30,7 @@ Access log entries are logged to standard out
 
 ```
 $ ./ipv6-httpd.py 
+Listening on port:8080
 Press ^C to quit
 2001:470:ebbd:0:4d18:71cd:b814:9508 - - [09/Jul/2017 11:49:41] "GET / HTTP/1.1" 200 -
 ^CCaught SIGINT, dying
@@ -38,7 +41,7 @@ Press ^C to quit
 
 ## Installation
 
-Copy `ipv6-htttpd.py` into your directory, and run. The script will serve up files in that directory, including a simple index of the directory.
+Copy `ipv6-htttpd.py` into your directory, and run. Or run from any directory, the script will serve up the current working directory (CWD), including a simple index of the directory.
 
 
 
