@@ -46,7 +46,7 @@ class MyHandler(SimpleHTTPRequestHandler):
             self.send_header('Content-type', 'text/html')
             self.end_headers()
             answer = 'Your IP address is ' + self.client_address[0]
-            # convert string 'answer' to binary for buffer output
+            # convert string 'answer' to bytes for buffer output
             self.wfile.write(str.encode(answer))
             return
         else:
